@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <permission
+        android:name="com.stankovic.zebrawebview.SCAN_PERMISSION"
+        android:protectionLevel="signature" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -22,6 +28,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver
+            android:name=".scanning.ScanBroadcastReceiver"
+            android:exported="true"
+            android:permission="com.footshop.wrapp.SCAN_PERMISSION">
+            <intent-filter>
+                <action android:name="com.footshop.wrapp.SCAN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

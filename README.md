@@ -256,15 +256,12 @@ Your web page must implement the JavaScript callback:
 
 ```javascript
 // In your web page
-window.onBarcodeScanned = function(data) {
-    document.getElementById('barcode-input').value = data;
-};
+window.onBarcodeScanned = (data) => {
+    console.log("Scanned data:", data);
+}
 ```
 
 ### Debug Tips
-
-- Use `adb logcat` to view system logs
-- Add logging to broadcast receiver
 - Test with manual intent broadcasts using ADB:
 
 ```bash
